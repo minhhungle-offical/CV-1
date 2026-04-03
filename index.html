@@ -10,597 +10,83 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
       body {
         font-family: "Inter", sans-serif;
       }
       .gradient-bg {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       }
-      .dark .gradient-bg {
-        background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
-      }
-      .card-hover {
-        transition: all 0.3s ease;
-      }
-      .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      }
-      .dark .card-hover:hover {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      }
-      .skill-tag {
-        transition: all 0.2s ease;
-      }
-      .skill-tag:hover {
-        transform: scale(1.05);
-      }
-      .animate-fade-in {
-        animation: fadeIn 0.6s ease-out;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .timeline-dot {
-        position: relative;
-      }
-      .timeline-dot::before {
-        content: "";
-        position: absolute;
-        left: -28px;
-        top: 8px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-      .dark .timeline-dot::before {
-        background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
-      }
       @media print {
-        /* Hide only the no-print elements */
         .no-print,
         .no-print * {
           display: none !important;
           visibility: hidden !important;
         }
-
-        /* Ensure everything else is visible */
-        body * {
-          visibility: visible !important;
-        }
-
-        /* Ensure all content is visible */
-        body {
-          overflow: visible !important;
-          height: auto !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        /* Ensure main content area is visible */
-        main,
-        main *,
-        header,
-        header *,
-        footer,
-        footer * {
-          visibility: visible !important;
-          display: block !important;
-        }
-
-        /* Ensure sections are visible */
-        section,
-        section * {
-          visibility: visible !important;
-          opacity: 1 !important;
-          display: block !important;
-        }
-
-        /* Ensure grid layouts work in print */
-        .grid {
-          display: grid !important;
-        }
-
-        /* Ensure flex layouts work in print */
-        .flex {
-          display: flex !important;
-        }
-
-        /* Ensure inline elements are visible */
-        span,
-        a,
-        p,
-        h1,
-        h2,
-        h3,
-        h4,
-        li {
-          visibility: visible !important;
-          opacity: 1 !important;
-        }
-
-        /* Ensure images are visible */
-        img {
-          visibility: visible !important;
-          opacity: 1 !important;
-          max-width: 100% !important;
-          height: auto !important;
-        }
-
-        /* Ensure all containers are visible */
-        div {
-          visibility: visible !important;
-          opacity: 1 !important;
-        }
-
-        /* Ensure lists are visible */
-        ul,
-        ol {
-          visibility: visible !important;
-          opacity: 1 !important;
-          list-style-position: inside !important;
-        }
-
-        /* Ensure all text is visible */
-        * {
-          color: inherit !important;
-          background-color: transparent !important;
-        }
-
-        /* Override any inline styles that might hide content */
-        [style*="display: none"],
-        [style*="display:none"],
-        [style*="visibility: hidden"],
-        [style*="visibility:hidden"],
-        [style*="opacity: 0"],
-        [style*="opacity:0"] {
-          display: block !important;
-          visibility: visible !important;
-          opacity: 1 !important;
-        }
-
-        /* Ensure print styles work on all browsers */
-        html {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        /* Ensure all elements are visible */
-        * {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        /* Ensure page breaks work correctly */
-        section {
-          page-break-inside: avoid !important;
-          break-inside: avoid !important;
-        }
-
-        /* Ensure backgrounds print */
-        .gradient-bg,
-        .bg-white,
-        [class*="bg-gradient"] {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        /* Ensure backgrounds print */
-        * {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        /* Force background colors to print */
-        .gradient-bg {
-          background: linear-gradient(
-            135deg,
-            #667eea 0%,
-            #764ba2 100%
-          ) !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        /* Ensure card backgrounds print */
-        .bg-white {
-          background-color: #ffffff !important;
-        }
-
-        /* Ensure skill tags print with colors */
-        .skill-tag,
-        [class*="bg-blue-500"],
-        [class*="bg-green-500"],
-        [class*="bg-yellow-500"],
-        [class*="bg-orange-500"],
-        [class*="bg-purple-500"],
-        [class*="bg-red-500"] {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        /* Ensure gradient sections print */
-        [class*="bg-gradient-to-r"],
-        [class*="bg-gradient-to-br"] {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        /* Remove animations for print */
-        .animate-fade-in {
-          animation: none !important;
-          opacity: 1 !important;
-          transform: none !important;
-        }
-
-        /* Ensure sections are visible in print - override inline styles */
-        section,
-        section *,
-        main,
-        main *,
-        header,
-        header *,
-        footer,
-        footer * {
-          opacity: 1 !important;
-          transform: none !important;
-          transition: none !important;
-          animation: none !important;
-        }
-
-        /* Force all elements to be visible when printing */
-        * {
-          opacity: 1 !important;
-          visibility: visible !important;
-        }
-
-        /* Ensure all divs and containers are visible */
-        div,
-        ul,
-        li,
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        span,
-        a,
-        img {
-          opacity: 1 !important;
-          visibility: visible !important;
-        }
-
-        /* Optimize page breaks */
-        section {
-          page-break-inside: avoid;
-        }
-
-        /* Ensure shadows print */
-        .shadow-lg,
-        .shadow-md {
-          box-shadow:
-            0 4px 6px -1px rgba(0, 0, 0, 0.1),
-            0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-        }
-
-        /* Ensure contact section gradient prints */
-        .gradient-bg.text-white {
-          background: linear-gradient(
-            135deg,
-            #667eea 0%,
-            #764ba2 100%
-          ) !important;
-          color: white !important;
-        }
-
-        /* Ensure all text is readable */
-        .text-white,
-        .text-white\/90,
-        .text-white\/70 {
-          color: white !important;
-        }
-
-        /* Ensure links are styled */
-        a {
-          text-decoration: none !important;
-        }
-
-        /* Page margins */
-        @page {
-          margin: 1cm;
-        }
-
-        body {
-          font-size: 11pt !important;
-          line-height: 1.4 !important;
-        }
-
-        /* Reduce padding for print */
-        header {
-          padding-top: 1rem !important;
-          padding-bottom: 1rem !important;
-        }
-
-        main {
-          padding-top: 0.5rem !important;
-          padding-bottom: 0.5rem !important;
-        }
-
-        section {
-          margin-bottom: 0.5rem !important;
-          padding: 1rem !important;
-        }
-
-        /* Force light mode for print - override dark mode styles */
-        body {
-          background-color: #f9fafb !important;
-          color: #1f2937 !important;
-        }
-
-        .dark .bg-gray-800 {
-          background-color: #ffffff !important;
-        }
-
-        .dark .bg-gray-900 {
-          background-color: #f9fafb !important;
-        }
-
-        .dark .text-gray-100 {
-          color: #1f2937 !important;
-        }
-
-        .dark .text-gray-300 {
-          color: #374151 !important;
-        }
-
-        .dark .text-gray-400 {
-          color: #6b7280 !important;
-        }
-
-        .dark .text-purple-400 {
-          color: #7c3aed !important;
-        }
-
-        .dark .text-blue-400 {
-          color: #3b82f6 !important;
-        }
-
-        .dark .text-green-400 {
-          color: #10b981 !important;
-        }
-
-        .dark .border-purple-700 {
-          border-color: #a78bfa !important;
-        }
-
-        .dark .border-blue-700 {
-          border-color: #93c5fd !important;
-        }
-
-        .dark .border-green-700 {
-          border-color: #6ee7b7 !important;
-        }
-
-        /* Override dark mode gradient backgrounds */
-        .dark [class*="bg-gradient-to-r"],
-        .dark [class*="bg-gradient-to-br"] {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-
-        .dark .from-purple-900\/20 {
-          --tw-gradient-from: rgba(88, 28, 135, 0.2) !important;
-        }
-
-        .dark .to-transparent {
-          --tw-gradient-to: transparent !important;
-        }
-
-        .dark .from-blue-900\/20 {
-          --tw-gradient-from: rgba(30, 58, 138, 0.2) !important;
-        }
-
-        .dark .from-green-900\/20 {
-          --tw-gradient-from: rgba(6, 78, 59, 0.2) !important;
-        }
-
-        .dark .from-orange-900\/20 {
-          --tw-gradient-from: rgba(154, 52, 18, 0.2) !important;
-        }
-
-        .dark .from-pink-900\/20 {
-          --tw-gradient-from: rgba(131, 24, 67, 0.2) !important;
-        }
-
-        .dark .from-teal-900\/20 {
-          --tw-gradient-from: rgba(17, 94, 89, 0.2) !important;
-        }
-
-        .dark .from-red-900\/20 {
-          --tw-gradient-from: rgba(153, 27, 27, 0.2) !important;
-        }
-
-        .dark .from-yellow-900\/20 {
-          --tw-gradient-from: rgba(113, 63, 18, 0.2) !important;
-        }
-
-        .dark .from-indigo-900\/20 {
-          --tw-gradient-from: rgba(49, 46, 129, 0.2) !important;
-        }
-
-        .dark .from-rose-900\/20 {
-          --tw-gradient-from: rgba(136, 19, 55, 0.2) !important;
-        }
-
-        .dark .from-amber-900\/20 {
-          --tw-gradient-from: rgba(120, 53, 15, 0.2) !important;
-        }
-
-        .dark .from-emerald-900\/20 {
-          --tw-gradient-from: rgba(6, 78, 59, 0.2) !important;
-        }
-
-        .dark .from-purple-900\/50 {
-          --tw-gradient-from: rgba(88, 28, 135, 0.5) !important;
-        }
-
-        .dark .from-blue-900\/50 {
-          --tw-gradient-from: rgba(30, 58, 138, 0.5) !important;
-        }
-
-        .dark .from-green-900\/50 {
-          --tw-gradient-from: rgba(6, 78, 59, 0.5) !important;
-        }
-
-        .dark .from-orange-900\/50 {
-          --tw-gradient-from: rgba(154, 52, 18, 0.5) !important;
-        }
-
-        .dark .from-yellow-900\/50 {
-          --tw-gradient-from: rgba(113, 63, 18, 0.5) !important;
-        }
-
-        .dark .from-red-900\/50 {
-          --tw-gradient-from: rgba(153, 27, 27, 0.5) !important;
-        }
-
-        .dark .from-pink-900\/50 {
-          --tw-gradient-from: rgba(131, 24, 67, 0.5) !important;
-        }
-
-        .dark .from-teal-900\/50 {
-          --tw-gradient-from: rgba(17, 94, 89, 0.5) !important;
-        }
-
-        .dark .from-rose-900\/50 {
-          --tw-gradient-from: rgba(136, 19, 55, 0.5) !important;
-        }
-
-        .dark .from-amber-900\/50 {
-          --tw-gradient-from: rgba(120, 53, 15, 0.5) !important;
-        }
-
-        .dark .from-emerald-900\/50 {
-          --tw-gradient-from: rgba(6, 78, 59, 0.5) !important;
-        }
-
-        .dark .from-indigo-900\/50 {
-          --tw-gradient-from: rgba(49, 46, 129, 0.5) !important;
-        }
       }
     </style>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-    </script>
   </head>
-  <body
-    class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300"
-  >
-    <!-- Dark Mode Toggle -->
-    <button
-      id="darkModeToggle"
-      class="no-print fixed top-4 right-4 z-50 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
-    >
-      <i class="fas fa-moon text-gray-700 dark:hidden"></i>
-      <i class="fas fa-sun text-yellow-400 hidden dark:block"></i>
-    </button>
-
+  <body class="bg-gray-50 text-gray-800">
     <!-- Header -->
-    <header class="gradient-bg text-white py-16 px-4 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
-        <div
-          class="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"
-        ></div>
-        <div
-          class="absolute bottom-20 right-20 w-80 h-80 bg-white rounded-full blur-3xl"
-        ></div>
-      </div>
-      <div class="max-w-5xl mx-auto relative z-10 px-4">
+    <header class="gradient-bg text-white py-12 px-4">
+      <div class="max-w-5xl mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="relative flex-shrink-0">
-            <div
-              class="w-40 h-40 rounded-full bg-white/20 flex items-center justify-center text-6xl font-bold border-4 border-white/30 shadow-2xl overflow-hidden"
-            >
-              <img
-                alt="Avatar"
-                src="avatar.jpg"
-                class="w-full h-full object-cover"
-              />
-            </div>
+          <div
+            class="w-32 h-32 rounded-full bg-white/20 flex items-center justify-center text-5xl font-bold border-4 border-white/30"
+          >
+            <img
+              alt="Avatar"
+              src="avatar.jpg"
+              class="w-full h-full object-cover rounded-full"
+            />
           </div>
-          <div class="text-center md:text-left flex-1">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 tracking-tight">
-              LÊ MINH HÙNG
-            </h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-6 font-light">
+          <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">LÊ MINH HÙNG</h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-4">
               Full-stack Developer
             </p>
             <div
-              class="flex flex-wrap justify-center md:justify-start gap-4 text-sm mb-6"
+              class="flex flex-wrap justify-center md:justify-start gap-4 text-sm"
             >
               <a
                 href="mailto:minhhungle.offical@gmail.com"
-                class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition"
+                class="flex items-center gap-2 hover:text-white/80"
               >
                 <i class="fas fa-envelope"></i> minhhungle.offical@gmail.com
               </a>
               <a
                 href="https://github.com/minhhungle"
                 target="_blank"
-                class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition"
+                class="flex items-center gap-2 hover:text-white/80"
               >
                 <i class="fab fa-github"></i> github.com/minhhungle
               </a>
-              <span
-                class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg"
-              >
+              <span class="flex items-center gap-2">
                 <i class="fas fa-phone"></i> 0989830760
               </span>
             </div>
+            <div class="mt-4">
+              <button
+                onclick="window.print()"
+                class="no-print inline-flex items-center gap-2 px-6 py-3 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-100 transition shadow-lg"
+              >
+                <i class="fas fa-download"></i> Tải CV
+              </button>
+            </div>
           </div>
-
-          <button
-            onclick="window.print()"
-            class="no-print inline-flex items-center gap-2 px-8 py-3 bg-white text-purple-700 font-semibold rounded-xl hover:bg-gray-100 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            <i class="fas fa-download"></i> Tải CV
-          </button>
         </div>
       </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 py-12">
+    <main class="max-w-5xl mx-auto px-4 py-8">
       <!-- Career Objective -->
-      <section
-        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 card-hover animate-fade-in"
-      >
+      <section class="bg-white rounded-xl shadow-md p-6 mb-8">
         <h2
-          class="text-2xl font-bold text-purple-700 dark:text-purple-400 mb-6 flex items-center gap-3"
+          class="text-2xl font-bold text-purple-700 mb-4 flex items-center gap-2"
         >
-          <div
-            class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center"
-          >
-            <i class="fas fa-bullseye text-purple-600 dark:text-purple-400"></i>
-          </div>
-          Mục tiêu nghề nghiệp
+          <i class="fas fa-bullseye"></i> Mục tiêu nghề nghiệp
         </h2>
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+        <p class="text-gray-700 leading-relaxed">
           Full-stack Developer với kinh nghiệm xây dựng và vận hành các hệ thống
           web thực tế từ frontend đến backend. Thành thạo hệ sinh thái
           JavaScript/TypeScript với React, Node.js và MongoDB. Có kinh nghiệm
@@ -612,219 +98,200 @@
       </section>
 
       <!-- Skills -->
-      <section
-        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 card-hover animate-fade-in"
-      >
+      <section class="bg-white rounded-xl shadow-md p-6 mb-8">
         <h2
-          class="text-2xl font-bold text-purple-700 dark:text-purple-400 mb-8 flex items-center gap-3"
+          class="text-2xl font-bold text-purple-700 mb-6 flex items-center gap-2"
         >
-          <div
-            class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center"
-          >
-            <i class="fas fa-code text-purple-600 dark:text-purple-400"></i>
-          </div>
-          Kỹ năng chuyên môn
+          <i class="fas fa-code"></i> Kỹ năng chuyên môn
         </h2>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-2 gap-6">
           <!-- Frontend -->
-          <div
-            class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6"
-          >
+          <div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"
+              class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2"
             >
               <i class="fas fa-laptop-code text-blue-500"></i> Frontend
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >React.js</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >Next.js</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >React Router</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >TanStack Query</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >Zustand / Redux</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >Tailwind CSS</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >Ant Design</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >Material UI</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >Chart.js</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-blue-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
                 >CKEditor</span
               >
             </div>
           </div>
 
           <!-- Backend -->
-          <div
-            class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6"
-          >
+          <div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"
+              class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2"
             >
               <i class="fas fa-server text-green-500"></i> Backend
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
-                class="skill-tag px-3 py-1.5 bg-green-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
                 >Node.js</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-green-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
                 >Express.js</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-green-500 text-white rounded-lg text-sm font-medium shadow-sm"
-                >RESTful API</span
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
+                >RESTful API Design</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-green-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
                 >WebSocket</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-green-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
                 >MQTT</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-green-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
                 >GraphQL</span
               >
             </div>
           </div>
 
           <!-- Database -->
-          <div
-            class="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 rounded-xl p-6"
-          >
+          <div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"
+              class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2"
             >
               <i class="fas fa-database text-yellow-500"></i> Database
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
-                class="skill-tag px-3 py-1.5 bg-yellow-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm"
                 >MongoDB</span
               >
             </div>
           </div>
 
           <!-- DevOps -->
-          <div
-            class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-6"
-          >
+          <div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"
+              class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2"
             >
               <i class="fas fa-cloud text-orange-500"></i> DevOps &
               Infrastructure
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
-                class="skill-tag px-3 py-1.5 bg-orange-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
                 >Linux</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-orange-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
                 >Nginx</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-orange-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
                 >PM2</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-orange-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
                 >SSL</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-orange-500 text-white rounded-lg text-sm font-medium shadow-sm"
-                >VPS</span
+                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
+                >VPS Deployment</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-orange-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
                 >GitHub Actions</span
               >
             </div>
           </div>
 
           <!-- Tools -->
-          <div
-            class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6"
-          >
+          <div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"
+              class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2"
             >
               <i class="fas fa-tools text-purple-500"></i> Tools
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
-                class="skill-tag px-3 py-1.5 bg-purple-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
                 >Git / GitHub</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-purple-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
                 >Postman</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-purple-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
                 >VS Code</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-purple-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
                 >Figma</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-purple-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
                 >Jira / Agile</span
               >
             </div>
           </div>
 
           <!-- Languages -->
-          <div
-            class="bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 rounded-xl p-6"
-          >
+          <div>
             <h3
-              class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2"
+              class="text-lg font-semibold text-gray-800 mb-3 flex items-center gap-2"
             >
               <i class="fas fa-code text-red-500"></i> Ngôn ngữ
             </h3>
             <div class="flex flex-wrap gap-2">
               <span
-                class="skill-tag px-3 py-1.5 bg-red-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm"
                 >JavaScript</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-red-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm"
                 >TypeScript</span
               >
               <span
-                class="skill-tag px-3 py-1.5 bg-red-500 text-white rounded-lg text-sm font-medium shadow-sm"
+                class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm"
                 >HTML5 / CSS3</span
               >
             </div>
@@ -833,427 +300,395 @@
       </section>
 
       <!-- Projects -->
-      <section
-        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 card-hover animate-fade-in"
-      >
+      <section class="bg-white rounded-xl shadow-md p-6 mb-8">
         <h2
-          class="text-2xl font-bold text-purple-700 dark:text-purple-400 mb-8 flex items-center gap-3"
+          class="text-2xl font-bold text-purple-700 mb-6 flex items-center gap-2"
         >
-          <div
-            class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center"
-          >
-            <i class="fas fa-rocket text-purple-600 dark:text-purple-400"></i>
-          </div>
-          Dự án tiêu biểu
+          <i class="fas fa-rocket"></i> Dự án tiêu biểu
         </h2>
 
         <!-- Project 1 -->
-        <div
-          class="relative pl-8 mb-8 border-l-2 border-purple-200 dark:border-purple-700"
-        >
-          <div
-            class="absolute left-0 top-0 w-4 h-4 rounded-full bg-purple-500 -translate-x-1/2"
-          ></div>
-          <div
-            class="bg-gradient-to-r from-purple-50 to-transparent dark:from-purple-900/20 dark:to-transparent rounded-xl p-6"
-          >
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">
-                Hệ thống quản lý Chùa Diệu Pháp
-              </h3>
+        <div class="border-l-4 border-purple-500 pl-4 mb-6">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <h3 class="text-xl font-semibold text-gray-800">
+              Hệ thống quản lý Chùa Diệu Pháp
+            </h3>
+            <span
+              class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full"
+              >2025 – nay</span
+            >
+            <a
+              href="https://chuadieuphapbinhloitrung.com.vn"
+              target="_blank"
+              class="px-2 py-1 bg-purple-600 text-white text-xs rounded-full hover:bg-purple-700 flex items-center gap-1"
+            >
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+          <p class="text-gray-600 mb-3">Full-stack Developer</p>
+          <p class="text-gray-700 mb-3">
+            Xây dựng hệ thống quản lý toàn diện cho chùa, bao gồm sự kiện, nội
+            dung, người dùng và vận hành.
+          </p>
+          <div class="mb-3">
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">
+              Tech stack:
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >React 19</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >Ant Design</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >React Query</span
+              >
               <span
-                class="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs rounded-full font-medium"
-                >2025 – nay</span
+                class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded"
+                >Express.js 5</span
+              >
+              <span
+                class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded"
+                >MongoDB</span
+              >
+              <span
+                class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded"
+                >VPS</span
+              >
+              <span
+                class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded"
+                >Nginx</span
+              >
+              <span
+                class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded"
+                >PM2</span
               >
             </div>
-            <p class="text-purple-600 dark:text-purple-400 font-medium mb-3">
-              Full-stack Developer
-            </p>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              Xây dựng hệ thống quản lý toàn diện cho chùa, bao gồm sự kiện, nội
-              dung, người dùng và vận hành.
-            </p>
-            <div class="mb-4">
-              <h4
-                class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2"
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">
+              Tính năng nổi bật:
+            </h4>
+            <ul class="grid md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> QR check-in cho sự
+                kiện
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> CMS với rich text
+                editor
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Phân quyền người
+                dùng (RBAC)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Quản lý thông báo
+                (pin/unpin)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Tích hợp video
+                YouTube
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Workflow đăng ký &
+                quản lý tài nguyên
+              </li>
+            </ul>
+          </div>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">Links:</h4>
+            <div class="flex flex-wrap gap-2">
+              <a
+                href="https://chuadieuphapbinhloitrung.com.vn"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1"
               >
-                Tech stack:
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >React 19</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >Ant Design</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >React Query</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-lg font-medium"
-                  >Express.js 5</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-lg font-medium"
-                  >MongoDB</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs rounded-lg font-medium"
-                  >VPS</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs rounded-lg font-medium"
-                  >Nginx</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs rounded-lg font-medium"
-                  >PM2</span
-                >
-              </div>
-            </div>
-            <div>
-              <h4
-                class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2"
-              >
-                Tính năng nổi bật:
-              </h4>
-              <ul
-                class="grid md:grid-cols-2 gap-2 text-sm text-gray-600 dark:text-gray-400"
-              >
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> QR check-in
-                  cho sự kiện
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> CMS với
-                  rich text editor
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Phân quyền
-                  người dùng (RBAC)
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Quản lý
-                  thông báo (pin/unpin)
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Tích hợp
-                  video YouTube
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Workflow
-                  đăng ký & quản lý tài nguyên
-                </li>
-              </ul>
+                <i class="fas fa-globe"></i> chuadieuphapbinhloitrung.com.vn
+              </a>
             </div>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div
-          class="relative pl-8 mb-8 border-l-2 border-blue-200 dark:border-blue-700"
-        >
-          <div
-            class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-500 -translate-x-1/2"
-          ></div>
-          <div
-            class="bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20 dark:to-transparent rounded-xl p-6"
-          >
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">
-                Nền tảng quản lý trạm sạc xe điện EFlux
-              </h3>
+        <div class="border-l-4 border-blue-500 pl-4 mb-6">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <h3 class="text-xl font-semibold text-gray-800">
+              Nền tảng quản lý trạm sạc xe điện EFlux
+            </h3>
+            <span
+              class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full"
+              >2025 – nay</span
+            >
+            <a
+              href="https://charge.eflux.vn"
+              target="_blank"
+              class="px-2 py-1 bg-blue-600 text-white text-xs rounded-full hover:bg-blue-700 flex items-center gap-1"
+            >
+              <i class="fas fa-external-link-alt"></i> Charge
+            </a>
+            <a
+              href="https://eflux.vn"
+              target="_blank"
+              class="px-2 py-1 bg-blue-600 text-white text-xs rounded-full hover:bg-blue-700 flex items-center gap-1"
+            >
+              <i class="fas fa-external-link-alt"></i> EFlux
+            </a>
+          </div>
+          <p class="text-gray-600 mb-3">Full-stack Developer</p>
+          <p class="text-gray-700 mb-3">
+            Hệ thống quản lý trạm sạc, thiết bị, phiên sạc và giao dịch.
+          </p>
+          <div class="mb-3">
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">
+              Tech stack:
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >React 19</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >Ant Design</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >React Query</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >Chart.js</span
+              >
               <span
-                class="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium"
-                >2025 – nay</span
+                class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded"
+                >Express.js</span
+              >
+              <span
+                class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded"
+                >MongoDB</span
               >
             </div>
-            <p class="text-blue-600 dark:text-blue-400 font-medium mb-3">
-              Full-stack Developer
-            </p>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              Hệ thống quản lý trạm sạc, thiết bị, phiên sạc và giao dịch.
-            </p>
-            <div class="mb-4">
-              <h4
-                class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2"
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">
+              Tính năng nổi bật:
+            </h4>
+            <ul class="grid md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Dashboard thống kê
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Quản lý trạm & tiện
+                ích
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Quản lý máy sạc &
+                port
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Theo dõi phiên sạc
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Thanh toán & giao
+                dịch
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Biểu đồ usage &
+                doanh thu
+              </li>
+            </ul>
+          </div>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">Links:</h4>
+            <div class="flex flex-wrap gap-2">
+              <a
+                href="https://charge.eflux.vn"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1"
               >
-                Tech stack:
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >React 19</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >Ant Design</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >React Query</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >Chart.js</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-lg font-medium"
-                  >Express.js</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-lg font-medium"
-                  >MongoDB</span
-                >
-              </div>
-            </div>
-            <div>
-              <h4
-                class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2"
+                <i class="fas fa-globe"></i> charge.eflux.vn
+              </a>
+              <a
+                href="https://eflux.vn"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1"
               >
-                Tính năng nổi bật:
-              </h4>
-              <ul
-                class="grid md:grid-cols-2 gap-2 text-sm text-gray-600 dark:text-gray-400"
-              >
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Dashboard
-                  thống kê
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Quản lý
-                  trạm & tiện ích
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Quản lý máy
-                  sạc & port
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Theo dõi
-                  phiên sạc
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Thanh toán
-                  & giao dịch
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Biểu đồ
-                  usage & doanh thu
-                </li>
-              </ul>
+                <i class="fas fa-globe"></i> eflux.vn
+              </a>
             </div>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div
-          class="relative pl-8 border-l-2 border-green-200 dark:border-green-700"
-        >
-          <div
-            class="absolute left-0 top-0 w-4 h-4 rounded-full bg-green-500 -translate-x-1/2"
-          ></div>
-          <div
-            class="bg-gradient-to-r from-green-50 to-transparent dark:from-green-900/20 dark:to-transparent rounded-xl p-6"
-          >
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">
-                Hipfest Platform (Multi-tenant CMS)
-              </h3>
+        <div class="border-l-4 border-green-500 pl-4">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <h3 class="text-xl font-semibold text-gray-800">
+              Hipfest Platform (Multi-tenant CMS)
+            </h3>
+            <span
+              class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full"
+              >2025 – nay</span
+            >
+            <a
+              href="https://hipfest.vn"
+              target="_blank"
+              class="px-2 py-1 bg-green-600 text-white text-xs rounded-full hover:bg-green-700 flex items-center gap-1"
+            >
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+          <p class="text-gray-600 mb-3">Full-stack Developer</p>
+          <p class="text-gray-700 mb-3">
+            Nền tảng quản lý sự kiện Hip Hop với kiến trúc multi-tenant.
+          </p>
+          <div class="mb-3">
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">
+              Tech stack:
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >React 19</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >Tailwind CSS</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >Vite</span
+              >
+              <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded"
+                >Next.js</span
+              >
               <span
-                class="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-full font-medium"
-                >2025 – nay</span
+                class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded"
+                >Express.js</span
+              >
+              <span
+                class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded"
+                >MongoDB</span
               >
             </div>
-            <p class="text-green-600 dark:text-green-400 font-medium mb-3">
-              Full-stack Developer
-            </p>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              Nền tảng quản lý sự kiện Hip Hop với kiến trúc multi-tenant.
-            </p>
-            <div class="mb-4">
-              <h4
-                class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2"
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">
+              Tính năng nổi bật:
+            </h4>
+            <ul class="grid md:grid-cols-2 gap-2 text-sm text-gray-600">
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Multi-tenant (quản
+                lý đối tác)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Subscription plan
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> CMS đa ngôn ngữ
+                (VI/EN)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> SEO (meta, slug,
+                keywords)
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-green-500"></i> Phân quyền &
+                workflow nội dung
+              </li>
+            </ul>
+          </div>
+          <div class="mt-3">
+            <h4 class="text-sm font-semibold text-gray-700 mb-2">Links:</h4>
+            <div class="flex flex-wrap gap-2">
+              <a
+                href="https://hipfest.vn"
+                target="_blank"
+                class="text-blue-600 hover:text-blue-800 text-sm flex items-center gap-1"
               >
-                Tech stack:
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >React 19</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >Tailwind CSS</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >Vite</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs rounded-lg font-medium"
-                  >Next.js</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-lg font-medium"
-                  >Express.js</span
-                >
-                <span
-                  class="px-2.5 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-xs rounded-lg font-medium"
-                  >MongoDB</span
-                >
-              </div>
-            </div>
-            <div>
-              <h4
-                class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2"
-              >
-                Tính năng nổi bật:
-              </h4>
-              <ul
-                class="grid md:grid-cols-2 gap-2 text-sm text-gray-600 dark:text-gray-400"
-              >
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i>
-                  Multi-tenant (quản lý đối tác)
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i>
-                  Subscription plan
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> CMS đa ngôn
-                  ngữ (VI/EN)
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> SEO (meta,
-                  slug, keywords)
-                </li>
-                <li class="flex items-center gap-2">
-                  <i class="fas fa-check-circle text-green-500"></i> Phân quyền
-                  & workflow nội dung
-                </li>
-              </ul>
+                <i class="fas fa-globe"></i> hipfest.vn
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Strengths -->
-      <section
-        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 card-hover animate-fade-in"
-      >
+      <section class="bg-white rounded-xl shadow-md p-6 mb-8">
         <h2
-          class="text-2xl font-bold text-purple-700 dark:text-purple-400 mb-6 flex items-center gap-3"
+          class="text-2xl font-bold text-purple-700 mb-4 flex items-center gap-2"
         >
-          <div
-            class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center"
-          >
-            <i class="fas fa-star text-purple-600 dark:text-purple-400"></i>
-          </div>
-          Điểm mạnh
+          <i class="fas fa-star"></i> Điểm mạnh
         </h2>
         <div class="grid md:grid-cols-2 gap-4">
-          <div
-            class="flex items-start gap-4 p-4 bg-gradient-to-r from-purple-50 to-transparent dark:from-purple-900/20 dark:to-transparent rounded-xl"
-          >
+          <div class="flex items-start gap-3">
             <div
-              class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-purple-600 dark:text-purple-400 flex-shrink-0"
+              class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 flex-shrink-0"
             >
-              <i class="fas fa-layer-group text-lg"></i>
+              <i class="fas fa-layer-group"></i>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                Full-stack capability
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <h3 class="font-semibold text-gray-800">Full-stack capability</h3>
+              <p class="text-sm text-gray-600">
                 Xây dựng hệ thống full-stack từ 0 đến production
               </p>
             </div>
           </div>
-          <div
-            class="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-transparent dark:from-blue-900/20 dark:to-transparent rounded-xl"
-          >
+          <div class="flex items-start gap-3">
             <div
-              class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 flex-shrink-0"
+              class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0"
             >
-              <i class="fas fa-cloud text-lg"></i>
+              <i class="fas fa-cloud"></i>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                DevOps skills
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <h3 class="font-semibold text-gray-800">DevOps skills</h3>
+              <p class="text-sm text-gray-600">
                 Kinh nghiệm triển khai và vận hành hệ thống trên VPS
               </p>
             </div>
           </div>
-          <div
-            class="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-transparent dark:from-green-900/20 dark:to-transparent rounded-xl"
-          >
+          <div class="flex items-start gap-3">
             <div
-              class="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center text-green-600 dark:text-green-400 flex-shrink-0"
+              class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0"
             >
-              <i class="fas fa-brain text-lg"></i>
+              <i class="fas fa-brain"></i>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                System thinking
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <h3 class="font-semibold text-gray-800">System thinking</h3>
+              <p class="text-sm text-gray-600">
                 Có tư duy hệ thống, khả năng phân tích và giải quyết vấn đề tốt
               </p>
             </div>
           </div>
-          <div
-            class="flex items-start gap-4 p-4 bg-gradient-to-r from-orange-50 to-transparent dark:from-orange-900/20 dark:to-transparent rounded-xl"
-          >
+          <div class="flex items-start gap-3">
             <div
-              class="w-12 h-12 rounded-xl bg-orange-100 dark:bg-orange-900/50 flex items-center justify-center text-orange-600 dark:text-orange-400 flex-shrink-0"
+              class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0"
             >
-              <i class="fas fa-graduation-cap text-lg"></i>
+              <i class="fas fa-graduation-cap"></i>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                Self-learning
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <h3 class="font-semibold text-gray-800">Self-learning</h3>
+              <p class="text-sm text-gray-600">
                 Chủ động học công nghệ mới nhanh chóng
               </p>
             </div>
           </div>
-          <div
-            class="flex items-start gap-4 p-4 bg-gradient-to-r from-pink-50 to-transparent dark:from-pink-900/20 dark:to-transparent rounded-xl"
-          >
+          <div class="flex items-start gap-3">
             <div
-              class="w-12 h-12 rounded-xl bg-pink-100 dark:bg-pink-900/50 flex items-center justify-center text-pink-600 dark:text-pink-400 flex-shrink-0"
+              class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 flex-shrink-0"
             >
-              <i class="fas fa-users text-lg"></i>
+              <i class="fas fa-users"></i>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                Team player
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <h3 class="font-semibold text-gray-800">Team player</h3>
+              <p class="text-sm text-gray-600">
                 Làm việc nhóm hiệu quả, giao tiếp tốt
               </p>
             </div>
           </div>
-          <div
-            class="flex items-start gap-4 p-4 bg-gradient-to-r from-teal-50 to-transparent dark:from-teal-900/20 dark:to-transparent rounded-xl"
-          >
+          <div class="flex items-start gap-3">
             <div
-              class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center text-teal-600 dark:text-teal-400 flex-shrink-0"
+              class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 flex-shrink-0"
             >
-              <i class="fas fa-search text-lg"></i>
+              <i class="fas fa-search"></i>
             </div>
             <div>
-              <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-                Attention to detail
-              </h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <h3 class="font-semibold text-gray-800">Attention to detail</h3>
+              <p class="text-sm text-gray-600">
                 Chú ý đến chi tiết trong code và UI/UX
               </p>
             </div>
@@ -1262,248 +697,71 @@
       </section>
 
       <!-- Future Goals -->
-      <section
-        class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8 card-hover animate-fade-in"
-      >
+      <section class="bg-white rounded-xl shadow-md p-6 mb-8">
         <h2
-          class="text-2xl font-bold text-purple-700 dark:text-purple-400 mb-6 flex items-center gap-3"
+          class="text-2xl font-bold text-purple-700 mb-4 flex items-center gap-2"
         >
-          <div
-            class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center"
-          >
-            <i
-              class="fas fa-chart-line text-purple-600 dark:text-purple-400"
-            ></i>
-          </div>
-          Định hướng phát triển
+          <i class="fas fa-chart-line"></i> Định hướng phát triển
         </h2>
         <div class="grid md:grid-cols-3 gap-6">
-          <div
-            class="relative pl-6 border-l-2 border-blue-200 dark:border-blue-700"
-          >
-            <div
-              class="absolute left-0 top-0 w-3 h-3 rounded-full bg-blue-500 -translate-x-1/2"
-            ></div>
-            <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-3">
-              Ngắn hạn (1–2 năm)
-            </h3>
-            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-blue-500"></i> Nâng cao
-                TypeScript và testing
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-blue-500"></i> Xây dựng CI/CD
-                pipeline
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-blue-500"></i> Học Docker
-              </li>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Ngắn hạn (1–2 năm)</h3>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Nâng cao TypeScript và testing</li>
+              <li>• Xây dựng CI/CD pipeline</li>
+              <li>• Học Docker</li>
             </ul>
           </div>
-          <div
-            class="relative pl-6 border-l-2 border-purple-200 dark:border-purple-700"
-          >
-            <div
-              class="absolute left-0 top-0 w-3 h-3 rounded-full bg-purple-500 -translate-x-1/2"
-            ></div>
-            <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-3">
+          <div class="border-l-4 border-purple-500 pl-4">
+            <h3 class="font-semibold text-gray-800 mb-2">
               Trung hạn (2–3 năm)
             </h3>
-            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-purple-500"></i> Tech Lead
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-purple-500"></i> System Design
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-purple-500"></i> Microservices
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-purple-500"></i> Cloud
-                (AWS/GCP/Azure)
-              </li>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Tech Lead</li>
+              <li>• System Design</li>
+              <li>• Microservices</li>
+              <li>• Cloud (AWS/GCP/Azure)</li>
             </ul>
           </div>
-          <div
-            class="relative pl-6 border-l-2 border-green-200 dark:border-green-700"
-          >
-            <div
-              class="absolute left-0 top-0 w-3 h-3 rounded-full bg-green-500 -translate-x-1/2"
-            ></div>
-            <h3 class="font-bold text-gray-800 dark:text-gray-100 mb-3">
-              Dài hạn (3–5 năm)
-            </h3>
-            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-green-500"></i> Software
-                Architect
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-green-500"></i> Xây dựng sản
-                phẩm riêng
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="fas fa-arrow-right text-green-500"></i> Open-source &
-                mentoring
-              </li>
+          <div class="border-l-4 border-green-500 pl-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Dài hạn (3–5 năm)</h3>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li>• Software Architect</li>
+              <li>• Xây dựng sản phẩm riêng</li>
+              <li>• Open-source & mentoring</li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section
-        class="gradient-bg rounded-2xl shadow-lg p-8 text-white relative overflow-hidden"
-      >
-        <div class="absolute inset-0 opacity-10">
-          <div
-            class="absolute top-10 right-10 w-72 h-72 bg-white rounded-full blur-3xl"
-          ></div>
-        </div>
-        <div class="relative z-10">
-          <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-            <div
-              class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center"
-            >
-              <i class="fas fa-envelope"></i>
-            </div>
-            Liên hệ
-          </h2>
-          <div class="grid md:grid-cols-3 gap-4">
-            <a
-              href="mailto:minhhungle.offical@gmail.com"
-              class="flex items-center gap-4 bg-white/10 rounded-xl p-5 hover:bg-white/20 transition backdrop-blur-sm"
-            >
-              <div
-                class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"
-              >
-                <i class="fas fa-envelope text-xl"></i>
-              </div>
-              <div>
-                <p class="text-sm text-white/70">Email</p>
-                <p class="text-xs font-semibold">
-                  minhhungle.offical@gmail.com
-                </p>
-              </div>
-            </a>
-            <a
-              href="https://github.com/minhhungle"
-              target="_blank"
-              class="flex items-center gap-4 bg-white/10 rounded-xl p-5 hover:bg-white/20 transition backdrop-blur-sm"
-            >
-              <div
-                class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"
-              >
-                <i class="fab fa-github text-xl"></i>
-              </div>
-              <div>
-                <p class="text-sm text-white/70">GitHub</p>
-                <p class="text-xs font-semibold">github.com/minhhungle</p>
-              </div>
-            </a>
-            <div
-              class="flex items-center gap-4 bg-white/10 rounded-xl p-5 backdrop-blur-sm"
-            >
-              <div
-                class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"
-              >
-                <i class="fas fa-phone text-xl"></i>
-              </div>
-              <div>
-                <p class="text-sm text-white/70">Phone</p>
-                <p class="text-xs font-semibold">0989830760</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-8 text-gray-500 dark:text-gray-400 text-sm">
-      <p>Last updated: 2026-03-29</p>
+    <footer class="text-center py-6 text-gray-500 text-sm">
+      &copy; 2026 Lê Minh Hùng. All rights reserved.
     </footer>
 
     <script>
-      // Dark mode toggle
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const html = document.documentElement;
-
-      // Check for saved dark mode preference
-      if (localStorage.getItem("darkMode") === "true") {
-        html.classList.add("dark");
-      }
-
-      darkModeToggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        localStorage.setItem("darkMode", html.classList.contains("dark"));
-      });
-
-      // Animate sections on scroll
+      // Animate skill bars on scroll
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
+              const bars = entry.target.querySelectorAll(".skill-bar");
+              bars.forEach((bar) => {
+                const width = bar.style.width;
+                bar.style.width = "0%";
+                setTimeout(() => {
+                  bar.style.width = width;
+                }, 100);
+              });
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 0.2 },
       );
 
       document.querySelectorAll("section").forEach((section) => {
-        section.style.opacity = "0";
-        section.style.transform = "translateY(20px)";
-        section.style.transition = "all 0.6s ease-out";
         observer.observe(section);
-      });
-
-      // Enhanced print function
-      function printCV() {
-        // Show all sections immediately (remove animation delay)
-        document.querySelectorAll("section").forEach((section) => {
-          section.style.opacity = "1";
-          section.style.transform = "translateY(0)";
-          section.style.transition = "none";
-        });
-
-        // Also ensure all child elements are visible
-        document
-          .querySelectorAll("div, ul, li, h1, h2, h3, h4, p, span, a, img")
-          .forEach((el) => {
-            el.style.opacity = "1";
-            el.style.visibility = "visible";
-          });
-
-        // Force reflow to ensure styles are applied
-        document.body.offsetHeight;
-
-        // Small delay to ensure all styles are applied
-        setTimeout(() => {
-          window.print();
-        }, 200);
-      }
-
-      // Override the print button click
-      document.addEventListener("DOMContentLoaded", function () {
-        const printButtons = document.querySelectorAll(
-          'button[onclick="window.print()"]',
-        );
-        printButtons.forEach((button) => {
-          button.removeAttribute("onclick");
-          button.addEventListener("click", printCV);
-        });
-      });
-
-      // Also handle keyboard shortcut (Ctrl+P / Cmd+P)
-      document.addEventListener("keydown", function (e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === "p") {
-          e.preventDefault();
-          printCV();
-        }
       });
     </script>
   </body>
